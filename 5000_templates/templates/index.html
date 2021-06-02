@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{% block body %}
+<h2>Your Character</h2>
+Name: {{ name }} 
+Race: {{ race }} 
+Class: {{ class }} <br>
+Strength {{ strength }} <br>
+Dexterity {{ dexterity }} <br>
+Constitution {{ constitution }} <br>
+Intelligence {{ intelligence }} <br>
+Wisdom {{ wisdom }} <br>
+Charisma {{ charisma }}
+
+<h2>Generate Character</h2>
+
+
+
+<h2>Previous Characters</h2>
+
+{% for char in all_chars %}
+    Name: {{ name }} 
+    Race: {{ race }} 
+    Class: {{ class }} <br>
+    Strength {{ strength }} <br>
+    Dexterity {{ dexterity }} <br>
+    Constitution {{ constitution }} <br>
+    Intelligence {{ intelligence }} <br>
+    Wisdom {{ wisdom }} <br>
+    Charisma {{ charisma }}
+{% endfor %}
+
+{% endblock body %}
