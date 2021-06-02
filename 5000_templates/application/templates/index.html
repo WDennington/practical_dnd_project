@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block body %}
+<h2>Your Character</h2>
+Name: {{ name.text }}
+Race: {{ race.text }}
+Class: {{ class.text }}
+
+
+<h2>Generate Character</h2>
+
+<form action="{{ url_for('gen_char', id=id) }}">
+    <input type=submit value="Generate New Char">
+</form>
+
+<h2>Previous Characters</h2>
