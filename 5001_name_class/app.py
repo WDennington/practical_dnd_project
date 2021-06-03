@@ -5,8 +5,8 @@ app = Flask(__name__)
 
 @app.route("/gen_name", methods=['GET'])
 def gen_name():
-    names = ['Al E. Gater', 'Funder Dew Drop', 'ah chew', 'chimpo shumpooli', 'Sam "The pie flinger" jones',
-            'wumbo toot', 'bibble', 'eggbert headington', 'droop', 'Lou Sirr']
+    names = ['Al E. Gater', 'Funder Dew Drop', 'Ah Chew', 'Chimpo Shumpooli', 'Sam "The pie flinger" Jones',
+            'Wumbo Toot', 'Bibble', 'Eggbert Headington', 'Droop', 'Lou Sirr']
     return random.choice(names)
 
 

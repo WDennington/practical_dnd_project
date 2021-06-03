@@ -1,9 +1,9 @@
 {% extends 'layout.html' %}
 {% block body %}
 <h2>Your Character</h2>
-Name: {{ name }} 
-Race: {{ race }} 
-Class: {{ class }} <br>
+Name: {{ name }} <br>
+Race: {{ race }} <br>
+Class: {{ char_class }} <br>
 Strength {{ strength }} <br>
 Dexterity {{ dexterity }} <br>
 Constitution {{ constitution }} <br>
@@ -11,15 +11,16 @@ Intelligence {{ intelligence }} <br>
 Wisdom {{ wisdom }} <br>
 Charisma {{ charisma }}
 
-<h2>Generate Character</h2>
-
-
+</form>
+        <form action="{{ url_for('home') }}">
+            <input type=submit value="Generate Character">
+        </form>
 
 <h2>Previous Characters</h2>
 
 {% for char in all_chars %}
-    Name: {{ name }} 
-    Race: {{ race }} 
+    Name: {{ name }} <br>
+    Race: {{ race }} <br>
     Class: {{ class }} <br>
     Strength {{ strength }} <br>
     Dexterity {{ dexterity }} <br>
@@ -27,6 +28,7 @@ Charisma {{ charisma }}
     Intelligence {{ intelligence }} <br>
     Wisdom {{ wisdom }} <br>
     Charisma {{ charisma }}
+    <br><br>
 {% endfor %}
 
 {% endblock body %}

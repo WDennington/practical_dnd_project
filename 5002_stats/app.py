@@ -1,5 +1,6 @@
-from flask import Flask
+from flask import Flask, jsonify
 import random
+
 
 app = Flask(__name__)
 
@@ -22,16 +23,9 @@ def gen_stats():
     intelligence = roll_dice()
     wisdom = roll_dice()
     charisma = roll_dice()
-    stats = {
-        "strength":strength,
-        "dexterity":dexterity,
-        "constitution":constitution,
-        "intelligence":intelligence,
-        "wisdom":wisdom,
-        "charisma":charisma
-    }
+    
 
-    return stats
+    return jsonify([strength, dexterity, constitution, intelligence, wisdom, charisma])
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5002, debug=True)

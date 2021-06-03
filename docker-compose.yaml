@@ -11,12 +11,10 @@ services:
         container_name: name_class
         build: ./5001_name_class
         image: 5001_name_class:latest
-
     stats:
         container_name: stats
         build: ./5002_stats
         image: 5002_stats:latest
-
     character:
         container_name: character
         build: ./5003_character

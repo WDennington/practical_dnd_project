@@ -1,29 +1,29 @@
-from flask import Flask
-import requests
+from flask import Flask, jsonify, request
+
+
 
 
 app = Flask(__name__)
 
 @app.route('/gen_char', methods=['POST'])
 def gen_char():
-    stats = requests.get('http://5002-stats_api:5003/gen_stats')
-    char_class = requests.get('http://5001-name-class_api:5001/gen_class')
+    char_class=request.json['char_class']
+    stats=request.json['stats']
+    strength, dexterity, constitution, intelligence, wisdom, charisma = stats  
     if char_class == 'Dwarf':
-        stats["constitution"] += 2
+        constitution += 2
     elif char_class == 'Elf' or char_class == 'Halfling':
-        stats["dexterity"] += 2
+        dexterity += 2
     elif char_class == 'Gnome':
-        stats["intelligence"] += 2
+        intelligence += 2
     elif char_class == 'Human':
-        stats["strength"] += 1
-        stats["dexterity"] += 1
-        stats["constitution"] += 1
-        stats["intelligence"] += 1
-        stats["wisdom"] += 1
-        stats["charisma"] += 1 
-    else:
-        return stats   
-    return stats
+        strength += 1
+        dexterity += 1
+        constitution += 1
+        intelligence += 1
+        wisdom += 1
+        charisma += 1 
+    return jsonify([strength, dexterity, constitution, intelligence, wisdom, charisma])
 
 
 
