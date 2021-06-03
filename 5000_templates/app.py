@@ -19,9 +19,8 @@ class Characters(db.Model):
     dexterity = db.Column(db.Integer, nullable=False)
     wisdom = db.Column(db.Integer, nullable=False)
     intelligence = db.Column(db.Integer, nullable=False)
-    strength = db.Column(db.Integer, nullable=False)
     charisma = db.Column(db.Integer, nullable=False)
-
+db.drop_all()
 db.create_all()
 
 
@@ -37,9 +36,7 @@ def home():
     
     
     strength, dexterity, constitution, intelligence, wisdom, charisma = stats_class.json()
-
-    db.session.add(
-        Characters(
+    new_char =  Characters(
             name = name.text,
             char_class = char_class.text,
             race = race.text,
@@ -50,9 +47,9 @@ def home():
             wisdom = wisdom,
             charisma = charisma
         )
-    )
+    db.session.add(new_char)
     db.session.commit()
-    all_chars = Characters.query.limit(5)
+    all_chars = Characters.query.limit(5).all()
     return render_template('index.html', 
         name=name.text,
         char_class=char_class.text,

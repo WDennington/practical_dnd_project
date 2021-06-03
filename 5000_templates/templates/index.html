@@ -19,15 +19,15 @@ Charisma {{ charisma }}
 <h2>Previous Characters</h2>
 
 {% for char in all_chars %}
-    Name: {{ name }} <br>
-    Race: {{ race }} <br>
-    Class: {{ class }} <br>
-    Strength {{ strength }} <br>
-    Dexterity {{ dexterity }} <br>
-    Constitution {{ constitution }} <br>
-    Intelligence {{ intelligence }} <br>
-    Wisdom {{ wisdom }} <br>
-    Charisma {{ charisma }}
+    Name: {{ char.name }} <br>
+    Race: {{ char.race }} <br>
+    Class: {{ char.class }} <br>
+    Strength {{ char.strength }} <br>
+    Dexterity {{ char.dexterity }} <br>
+    Constitution {{ char.constitution }} <br>
+    Intelligence {{ char.intelligence }} <br>
+    Wisdom {{ char.wisdom }} <br>
+    Charisma {{ char.charisma }}
     <br><br>
 {% endfor %}
 
