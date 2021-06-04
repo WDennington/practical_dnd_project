@@ -2,7 +2,6 @@ pipeline {
     agent any
     enviroment {
         DATABASE_URI = credentials("DATABASE_URI")
-        SECRET_KEY = credentials("SECRET_KEY")
         DOCKER_LOGIN = credentials("DOCKER_LOGIN")
         rebuild_db = 'true'
         install_docker = 'false' 
@@ -28,6 +27,24 @@ pipeline {
                 sh 'docker-compose up'
             }
         }
-
+        stage('Push Docker Images'){
+            steps {
+                sh 'docker push wdennington/5000_templates:latest'
+                sh 'docker push wdennington/5001_name_class:latest'
+                sh 'docker push wdennington/5002_stats:latest'
+                sh 'docker push wdennington/5003_characters:latest'
+            }
+        }
+        // stage('Run') {
+        //     steps {
+                
+        //     }
+        // }
+    }
+    post {
+        always {
+            junit 'junit.xml'
+            cobertura coberturaReportFile: 'coverage.xml', failNoReports:false
+        }
     }
 }
