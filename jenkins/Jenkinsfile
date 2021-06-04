@@ -29,7 +29,7 @@ pipeline {
         }
         stage('Push Docker Images'){
             steps {
-                sh 'docker login -u ${DOCKER_USER} -p {DOCKER_PWD}'
+                sh 'docker login -u ${DOCKER_USER} -p ${DOCKER_PWD}'
                 sh 'docker push wdennington/5000_templates:latest'
                 sh 'docker push wdennington/5001_name_class:latest'
                 sh 'docker push wdennington/5002_stats:latest'
