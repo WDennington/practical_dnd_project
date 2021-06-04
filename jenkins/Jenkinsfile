@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+    enviroment {
+        DATABASE_URI = credentials("DATABASE_URI")
+        SECRET_KEY = credentials("SECRET_KEY")
+        DOCKER_LOGIN = credentials("DOCKER_LOGIN")
+        rebuild_db = 'true'
+        install_docker = 'false' 
+    }
+    stages {
+        stage('Test'){
+            steps{
+                sh 'bash jenkins/test.sh'
+            }
+        }
+        stage('Docker'){
+            steps {
+                script{
+                    if (env.install_docker == 'true'){
+                        sh 'bash jenkins/docker.sh'
+                    }
+                }
+            }
+        }
+        stage('Build'){
+            steps {
+                sh 'docker-compose build --parallel'
+                sh 'docker-compose up'
+            }
+        }
+
+    }
+}

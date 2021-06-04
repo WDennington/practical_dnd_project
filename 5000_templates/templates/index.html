@@ -4,12 +4,12 @@
 Name: {{ name }} <br>
 Race: {{ race }} <br>
 Class: {{ char_class }} <br>
-Strength {{ strength }} <br>
-Dexterity {{ dexterity }} <br>
-Constitution {{ constitution }} <br>
-Intelligence {{ intelligence }} <br>
-Wisdom {{ wisdom }} <br>
-Charisma {{ charisma }}
+Strength: {{ strength }} <br>
+Dexterity: {{ dexterity }} <br>
+Constitution: {{ constitution }} <br>
+Intelligence: {{ intelligence }} <br>
+Wisdom: {{ wisdom }} <br>
+Charisma:{{ charisma }}
 
 </form>
         <form action="{{ url_for('home') }}">
@@ -22,12 +22,12 @@ Charisma {{ charisma }}
     Name: {{ char.name }} <br>
     Race: {{ char.race }} <br>
     Class: {{ char.class }} <br>
-    Strength {{ char.strength }} <br>
-    Dexterity {{ char.dexterity }} <br>
-    Constitution {{ char.constitution }} <br>
-    Intelligence {{ char.intelligence }} <br>
-    Wisdom {{ char.wisdom }} <br>
-    Charisma {{ char.charisma }}
+    Strength: {{ char.strength }} <br>
+    Dexterity: {{ char.dexterity }} <br>
+    Constitution: {{ char.constitution }} <br>
+    Intelligence: {{ char.intelligence }} <br>
+    Wisdom: {{ char.wisdom }} <br>
+    Charisma: {{ char.charisma }}
     <br><br>
 {% endfor %}
 

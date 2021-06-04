@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import desc
 from flask import Flask, render_template
 import requests
 import os
@@ -30,11 +31,8 @@ def home():
     char_class = requests.get('http://name_class:5001/gen_class')
     race = requests.get('http://name_class:5001/gen_race')
     stats = requests.get('http://stats:5002/gen_stats')
-    
     payload = dict(stats=stats.json(), char_class=char_class.text)
     stats_class = requests.post('http://character:5003/gen_char', json=payload)
-    
-    
     strength, dexterity, constitution, intelligence, wisdom, charisma = stats_class.json()
     new_char =  Characters(
             name = name.text,
@@ -49,7 +47,7 @@ def home():
         )
     db.session.add(new_char)
     db.session.commit()
-    all_chars = Characters.query.limit(5).all()
+    all_chars = Characters.query.order_by(Characters.id.desc()).limit(5)
     return render_template('index.html', 
         name=name.text,
         char_class=char_class.text,
@@ -60,9 +58,6 @@ def home():
         intelligence = intelligence,
         wisdom = wisdom,
         charisma = charisma,
-        all_chars = all_chars
-        
+        all_chars = all_chars       
     )
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+if __name__ == "__main__": app.run(host="0.0.0.0", port=5000, debug=True)
