@@ -21,8 +21,7 @@ class Characters(db.Model):
     wisdom = db.Column(db.Integer, nullable=False)
     intelligence = db.Column(db.Integer, nullable=False)
     charisma = db.Column(db.Integer, nullable=False)
-db.drop_all()
-db.create_all()
+
 
 
 @app.route('/')

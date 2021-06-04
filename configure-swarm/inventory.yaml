@@ -1,0 +1,10 @@
+all:
+  children:
+    managers:
+      hosts:
+        10.154.0.7
+    workers:
+      hosts:
+        10.154.0.12
+  vars:
+    ansible_python_interpreter: "/usr/bin/python3"
