@@ -36,7 +36,7 @@ pipeline {
         }
         stage('Configuration') {
             steps {
-                sh 'sh ansible-playbook -i inventory.yaml playbook.yaml'
+                sh 'sh ansible-playbook -i configure-swarm/inventory.yaml configure-swarm/playbook.yaml'
             }
         }
     }
