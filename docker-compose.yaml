@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  frontend:
+    container_name: frontend
+    build: ./5000_templates
+    image: 5000_templates:latest
+    ports:
+    - target: 5000
+      published: 5000
+    environment: 
+      DATABASE_URI: ${DATABASE_URI}
+  name_class:
+    container_name: name_class
+    build: ./5001_name_class
+    image: 5001_name_class:latest
+  stats:
+    container_name: stats
+    build: ./5002_stats
+    image: 5002_stats:latest
+  character:
+    container_name: character
+    build: ./5003_character
+    image: 5003_character:latest

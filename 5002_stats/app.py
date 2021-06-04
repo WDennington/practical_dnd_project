@@ -1,6 +1,6 @@
-from flask import Flask
-from os import getenv
+from flask import Flask, jsonify
 import random
+
 
 app = Flask(__name__)
 
@@ -14,7 +14,7 @@ def roll_dice():
     result.remove(lowest)
     return sum(result)
 
-@app.route("/gen_stats")
+@app.route("/gen_stats", methods=['GET'])
 def gen_stats():
     
     strength = roll_dice()
@@ -23,21 +23,9 @@ def gen_stats():
     intelligence = roll_dice()
     wisdom = roll_dice()
     charisma = roll_dice()
-    stats = [
-        strength,
-        dexterity,
-        constitution,
-        intelligence,
-        wisdom,
-        charisma,
-    ]
+    
 
-    return stats
+    return jsonify([strength, dexterity, constitution, intelligence, wisdom, charisma])
 
-@app.route("/gen_gender")
-def gen_gender():
-    genders = [ 'male', 'female', 'non binary']
-    return random.choice(genders)
-
-
-
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5002, debug=True)
