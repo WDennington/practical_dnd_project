@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    enviroment {
+    environment {
         DATABASE_URI = credentials("DATABASE_URI")
         DOCKER_LOGIN = credentials("DOCKER_LOGIN")
         rebuild_db = 'true'
