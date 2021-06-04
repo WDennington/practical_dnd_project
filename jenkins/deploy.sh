@@ -1,4 +1,4 @@
-scp docker-compose.yaml swarm-master:
+scp -o StrictHostKeyChecking=no docker-compose.yaml swarm-master:
 ssh swarm-master << EOF
 
 export DATABASE_URI=${DATABASE_URI}
