@@ -2,10 +2,9 @@ pipeline {
     agent any
     environment {
         DATABASE_URI = credentials("DATABASE_URI")
-        DOCKER_USER = credentials("DOCKER_USER")
-        DOCKER_PWD = credentials("DOCKER_PWD")
+        DOCKER_LOGIN = credentials("DOCKER_LOGIN")
         rebuild_db = 'true'
-        install_docker = 'false' 
+        install_docker = 'true' 
     }
     stages {
         stage('Test'){
@@ -29,7 +28,6 @@ pipeline {
         }
         stage('Push Docker Images'){
             steps {
-                sh 'docker login -u ${DOCKER_USER} -p ${DOCKER_PWD}'
                 sh 'docker push wdennington/5000_templates:latest'
                 sh 'docker push wdennington/5001_name_class:latest'
                 sh 'docker push wdennington/5002_stats:latest'
