@@ -31,7 +31,7 @@ pipeline {
                 sh 'docker push wdennington/5000_templates:latest'
                 sh 'docker push wdennington/5001_name_class:latest'
                 sh 'docker push wdennington/5002_stats:latest'
-                sh 'docker push wdennington/5003_characters:latest'
+                sh 'docker push wdennington/5003_character:latest'
             }
         }
         stage('Run') {
