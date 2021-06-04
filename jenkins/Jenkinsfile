@@ -40,6 +40,11 @@ pipeline {
                 sh 'ansible-playbook -i ./configure-swarm/inventory.yaml ./configure-swarm/playbook.yaml'
             }
         }
+        stage('Deploy') {
+            steps {
+                sh 'bash jenkins/deploy.sh'
+            }
+        }
     }
     post {
         always {
