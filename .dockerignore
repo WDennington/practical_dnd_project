@@ -1,0 +1,5 @@
+.pytest_cache
+.vscode
+jenkins/
+.coverage
+.gitignore
