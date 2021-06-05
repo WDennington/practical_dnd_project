@@ -9,6 +9,8 @@
     - lsb-release
     - python3
     - python3-pip
+  update_cache: true
+  
 - name: "Get docker apt key"
   ansible.builtin.apt_key:
     url: https://download.docker.com/linux/ubuntu/gpg
@@ -34,4 +36,4 @@
   pip:
     name: docker
     executable: pip3
-    
+
