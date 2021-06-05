@@ -15,11 +15,17 @@ services:
     container_name: name_class
     image: wdennington/5001_name_class:latest
     build: ./5001_name_class
+    deploy:
+      replicas: 5
   stats:
     container_name: stats
     image: wdennington/5002_stats:latest
     build: ./5002_stats
+    deploy:
+      replicas: 5
   character:
     container_name: character
     image: wdennington/5003_character:latest
     build: ./5003_character
+    deploy:
+      replicas: 5
