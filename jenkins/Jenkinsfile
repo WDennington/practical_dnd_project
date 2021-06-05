@@ -23,8 +23,7 @@ pipeline {
         }
         stage('Build'){
             steps {
-                sh 'docker-compose build --parallel'
-                sh 'docker-compose up'
+                sh 'docker-compose build --parallel --pull'
             }
         }
         stage('Push Docker Images'){
@@ -32,18 +31,24 @@ pipeline {
                 sh 'docker push wdennington/5000_templates:latest'
                 sh 'docker push wdennington/5001_name_class:latest'
                 sh 'docker push wdennington/5002_stats:latest'
-                sh 'docker push wdennington/5003_characters:latest'
+                sh 'docker push wdennington/5003_character:latest'
             }
         }
-        // stage('Run') {
-        //     steps {
-                
-        //     }
-        // }
+        stage('Configuration') {
+            steps {
+                sh 'bash jenkins/ansible.sh'
+                sh 'ansible-playbook -i ./configure-swarm/inventory.yaml ./configure-swarm/playbook.yaml'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'bash jenkins/deploy.sh'
+            }
+        }
     }
     post {
         always {
-            junit 'junit.xml'
+            junit 'junit/*.xml'
             cobertura coberturaReportFile: 'coverage.xml', failNoReports:false
         }
     }
