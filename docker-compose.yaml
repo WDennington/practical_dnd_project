@@ -9,6 +9,8 @@ services:
       published: 5000
     environment: 
       DATABASE_URI: ${DATABASE_URI}
+    deploy:
+      replicas: 5
   name_class:
     container_name: name_class
     image: wdennington/5001_name_class:latest
