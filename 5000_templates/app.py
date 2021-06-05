@@ -26,12 +26,12 @@ class Characters(db.Model):
 
 @app.route('/')
 def home():
-    name = requests.get('http://name_class:5001/gen_name')
-    char_class = requests.get('http://name_class:5001/gen_class')
-    race = requests.get('http://name_class:5001/gen_race')
-    stats = requests.get('http://stats:5002/gen_stats')
+    name = requests.get('http://practical_dnd_project_name_class:5001/gen_name')
+    char_class = requests.get('http://practical_dnd_project_name_class:5001/gen_class')
+    race = requests.get('http://practical_dnd_project_name_class:5001/gen_race')
+    stats = requests.get('http://practical_dnd_project_stats:5002/gen_stats')
     payload = dict(stats=stats.json(), char_class=char_class.text)
-    stats_class = requests.post('http://character:5003/gen_char', json=payload)
+    stats_class = requests.post('http://practical_dnd_project_character:5003/gen_char', json=payload)
     strength, dexterity, constitution, intelligence, wisdom, charisma = stats_class.json()
     new_char =  Characters(
             name = name.text,
