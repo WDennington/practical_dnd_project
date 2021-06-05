@@ -12,3 +12,8 @@
   become: true
   roles:
   - swarm-worker
+
+- hosts: load_balancer
+  become: true
+  roles:
+  - nginx
