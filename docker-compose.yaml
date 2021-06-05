@@ -1,7 +1,7 @@
 version: '3.8'
 services:
-  practical_dnd_project_frontend:
-    container_name: practical_dnd_project_frontend
+  frontend:
+    container_name: frontend
     image: wdennington/5000_templates:latest
     build: ./5000_templates
     ports:
@@ -9,15 +9,15 @@ services:
       published: 5000
     environment: 
       DATABASE_URI: ${DATABASE_URI}
-  practical_dnd_project_name_class:
-    container_name: practical_dnd_project_name_class
+  name_class:
+    container_name: name_class
     image: wdennington/5001_name_class:latest
     build: ./5001_name_class
-  practical_dnd_project_stats:
-    container_name: practical_dnd_project_stats
+  stats:
+    container_name: stats
     image: wdennington/5002_stats:latest
     build: ./5002_stats
-  practical_dnd_project_character:
-    container_name: practical_dnd_project_character
+  character:
+    container_name: character
     image: wdennington/5003_character:latest
     build: ./5003_character

@@ -21,11 +21,11 @@ class TestBase(TestCase):
 class Testhome(TestBase):
     def test_home(self):
         with mock() as m:
-            m.get('http://practical_dnd_project_name_class:5001/gen_name', text='Droop')
-            m.get('http://practical_dnd_project_name_class:5001/gen_class', text='Barbarian')
-            m.get('http://practical_dnd_project_name_class:5001/gen_race', text='Human')
-            m.get('http://practical_dnd_project_stats:5002/gen_stats', json=[10,12,13,12,18,5])
-            m.post('http://practical_dnd_project_character:5003/gen_char', json =[11,13,14,13,19,6])
+            m.get('http://name_class:5001/gen_name', text='Droop')
+            m.get('http://name_class:5001/gen_class', text='Barbarian')
+            m.get('http://name_class:5001/gen_race', text='Human')
+            m.get('http://stats:5002/gen_stats', json=[10,12,13,12,18,5])
+            m.post('http://character:5003/gen_char', json =[11,13,14,13,19,6])
                 
 
 
