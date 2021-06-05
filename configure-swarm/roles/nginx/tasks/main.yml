@@ -2,7 +2,7 @@
 - name: Install nginx
   apt:
     name: nginx
-    state: latest
+    state: present
     update_cache: true
   
 - name: Copy nginx.conf to remote mechine
