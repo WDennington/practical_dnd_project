@@ -2,12 +2,13 @@ all:
   children:
     managers:
       hosts:
-        10.154.0.7
+        swarm-master
     workers:
       hosts:
-        10.154.0.12
+        - swarm-worker-a
+        - swarm-worker-bee
     load_balancer:
       hosts:
-        10.154.0.13
+        nginx
   vars:
     ansible_python_interpreter: "/usr/bin/python3"
