@@ -3,7 +3,7 @@ import random
 
 app = Flask(__name__)
 names = ['Al E. Gater', 'Funder Dew Drop', 'Ah Chew', 'Chimpo Shumpooli', 'Sam "The pie flinger" Jones',
-            'Wumbo Toot', 'Bibble', 'Eggbert Headington', 'Droop', 'Lou Sirr']
+            'Wumbo Toot', 'Bibble2', 'Eggbert Headington', 'Droop', 'Lou Sirr']
 @app.route("/gen_name", methods=['GET'])
 def gen_name():
     return random.choice(names)
