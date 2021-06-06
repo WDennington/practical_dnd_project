@@ -49,9 +49,10 @@ To make a DnD character/stats generator
 ## Architecture
 ### Risk Assessment
 My initial risk assessment can be seen first, below is a refactored version from the end of the project outlinging the risks that I believe will pose problems to the service running smoothly
-
-[Imgur](https://i.imgur.com/PrJYhkk.png)
-[Imgur](https://i.imgur.com/PmmhgTE.png)
+<br/>
+![Imgur](https://i.imgur.com/PrJYhkk.png)
+<br/><br/>
+![Imgur](https://i.imgur.com/PmmhgTE.png)
 
 View the original document [here](https://qalearning-my.sharepoint.com/:x:/g/personal/wdennington_qa_com/EdCGJbh2sVBIvNYGb5G1KQABv-aue0BOECjnMfE48c8-vw?e=XBopI8)
 
