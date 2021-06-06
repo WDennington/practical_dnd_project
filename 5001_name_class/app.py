@@ -9,12 +9,12 @@ def gen_name():
     return random.choice(names)
 
 
-classes = ['Barbarian2', 'Bard2', 'Cleric2', 'Druid2', 'Fighter2', 'Monk2', 'Paladin2', 'Ranger2', 'Rouge2', 'Sorcerer2', 'Warlock2', 'Wizard2', ]
+classes = ['Barbarianv2', 'Bardv2', 'Clericv2', 'Druidv2', 'Fighterv2', 'Monkv2', 'Paladinv2', 'Rangerv2', 'Rougev2', 'Sorcererv2', 'Warlockv2', 'Wizardv2']
 @app.route("/gen_class", methods=['GET'])
 def gen_class():
     return random.choice(classes)
 
-races = ['Dwarf', 'Elf', 'Gnome', 'Halfling', 'Human']
+races = ['Dwarven Brute', 'High Elf', 'Gnomish Street Urchin', 'Halfling of Bagend', 'Human of Stormwind']
 @app.route("/gen_race", methods=['GET'])
 def gen_race():
     return random.choice(races)
