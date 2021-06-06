@@ -3,13 +3,13 @@ import random
 
 app = Flask(__name__)
 names = ['Al E. Gater', 'Funder Dew Drop', 'Ah Chew', 'Chimpo Shumpooli', 'Sam "The pie flinger" Jones',
-            'Wumbo Toot', 'Bibble2', 'Eggbert Headington', 'Droop', 'Lou Sirr']
+            'Wumbo Toot', 'Bibble', 'Eggbert Headington', 'Droop', 'Lou Sirr', 'Dalton Brul']
 @app.route("/gen_name", methods=['GET'])
 def gen_name():
     return random.choice(names)
 
 
-classes = ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rouge', 'Sorcerer', 'Warlock', 'Wizard', ]
+classes = ['Barbarian2', 'Bard2', 'Cleric2', 'Druid2', 'Fighter2', 'Monk2', 'Paladin2', 'Ranger2', 'Rouge2', 'Sorcerer2', 'Warlock2', 'Wizard2', ]
 @app.route("/gen_class", methods=['GET'])
 def gen_class():
     return random.choice(classes)
