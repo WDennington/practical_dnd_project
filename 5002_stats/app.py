@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 def roll_dice():
     result = [  
-        random.randint(1, 6) + 10
+        random.randint(1, 6)
         for n
         in range(4)
     ]
@@ -17,12 +17,12 @@ def roll_dice():
 @app.route("/gen_stats", methods=['GET'])
 def gen_stats():
     
-    strength = roll_dice()
-    dexterity = roll_dice()
-    constitution = roll_dice()
-    intelligence = roll_dice()
-    wisdom = roll_dice()
-    charisma = roll_dice() 
+    strength = roll_dice() + 10
+    dexterity = roll_dice() + 10
+    constitution = roll_dice() + 10
+    intelligence = roll_dice() + 10
+    wisdom = roll_dice() + 10
+    charisma = roll_dice() + 10
     
 
     return jsonify([strength, dexterity, constitution, intelligence, wisdom, charisma])
