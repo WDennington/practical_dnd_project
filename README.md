@@ -53,7 +53,7 @@ My initial risk assessment can be seen first, below is a refactored version from
 <br/>
 ![First Risk Assessment](https://i.imgur.com/PrJYhkk.png)
 <br/><br/>
-![Final Risk Assessment](https://i.imgur.com/kqAaOIv.png)
+![Final Risk Assessment](https://i.imgur.com/IZoxt62.png)
 
 View the original document [here](https://qalearning-my.sharepoint.com/:x:/g/personal/wdennington_qa_com/EdCGJbh2sVBIvNYGb5G1KQABv-aue0BOECjnMfE48c8-vw?e=XBopI8)
 
