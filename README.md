@@ -11,7 +11,7 @@
 * [Infrastructure](#infrastructure)
   * [Jenkins](#jenkins)
   * [Entity Diagram](#entity-diagram)
-  * [Docker Swarm](#interactions-diagram)
+  * [Docker Swarm](#docker_swarm)
   * [The 4 Services](#the-4-services)
   * [CI Pipeline](#ci-pipeline)
 * [Development](#development)
@@ -102,5 +102,71 @@ Whenever new content is pushed to the `development` branch, Github will send a w
 
 ### CI Pipeline
 
+Below is a visual representation of the full pipeline in visual form, from getting a task to deploying it to the live enviroment.
+
 ![CI Pipeline image](https://i.imgur.com/pUVClbM.jpg)
+
+### Entity Diagram
+This project only makes use of a single table. It is still important to describe the structure as describing elements of the table means each can be tested accordingly.
+
+![entitity diagram image](https://i.imgur.com/XNea2JU.jpg)
+ 
+### Docker Swarm
+
+Using an orchestration tool, Docker Swarm, we are able to create a network of virtual machines that are all able to be accessed by the user to provide the same service. As shown in the pipeline diagram above I have implemented a load balancer using nginx, this upstreams the user to the least utilisied vm in the swarm. This also add extra security as the app is not accessed directly.
+
+### The 4 Services
+The diagram below represents how the services interact with one another. 
+
+![diagram of the services](https://i.imgur.com/y8ulXOq.jpg)
+
+The front end uses GET requests to get information from service 2 & 3 and send it to the frontend. This information is then sent to service 3 as a POST request, which sends back information based on the information obtained from service 2 & 3 by the frontend. The frontend can then display this to the user and store it in the database so the user can see some of the past characters generated.
+
+## Development
+### Front-End
+When navigating to port 80 (default http port) on the NGINX's IP, the result is shown below. The nginx load balancer divides the traffic across the swarm to stop a single node from becoming overloaded. This result is displayed using HTML (with Jinja2) for the layout.
+
+![image of front-end](https://i.imgur.com/KhgGRj2.png)
+
+### Unit Testing
+Unit testing is used here by seperating the services and testing each service with various scenarios. These are designed to assert each function returns an expected response under each given scenario. These tests are run automatically after every Git push using Jenkins. Jenkins prints out whether or not the tests were successsful, creates a cobertura report accessible on jenkins and also gives a coverage report noting the percentage of the application that was tested.
+
+Below First is the cobertura report, next is the Junit Graph and finally is the coverage report.
+
+![image of cobertura report](https://i.imgur.com/683BuWB.png)
+
+Each service is tested individually so if any service does not function the build will stop.
+
+![image of coverage report](https://i.imgur.com/3y9XgU5.png)
+
+This coverage report indicates that every line in each of my routes has been tested at least once in some scenario in the unit testing. 
+
+The precise lines used in my Jenkinsfile for testing are:
+```py
+python3 -m pytest 5000_templates --cov=5000_templates --cov-report=html --junitxml=junit/test-results1.xml --cov-report=xml --cov-report term-missing
+python3 -m pytest 5001_name_class --cov=5001_name_class --cov-report=html --junitxml=junit/test-results2.xml --cov-report=xml --cov-report term-missing
+python3 -m pytest 5002_stats --cov=5002_stats --cov-report=html --junitxml=junit/test-results3.xml --cov-report=xml --cov-report term-missing
+python3 -m pytest 5003_character --cov=5003_character --cov-report=html --junitxml=junit/test-results4.xml --cov-report=xml --cov-report term-missing
+ ```
+ This runs the tests on each service respectively. 
+ 
+This result also produces a junit.xml file which is used by the Jenkins Junit plug-in to produce advanced testing reports, further easing traceback for the developer. An example of these results can be seen below.
+
+![image of Junit](https://i.imgur.com/15lzXxI.png)
+![image of advanced coverage report](https://i.imgur.com/FqiOZ03.png)
+
+
+## Footer
+### Future Improvements
+* Reduce down-time on the deploy stage 
+* Allow users to add their own homebrew races along with their stat modifiers.
+* Improve testing to include integration testing.
+
+### Author
+William Dennington
+
+### Acknowledgements
+* [Harry Volker](https://github.com/htr-volker)
+* [Oliver Nichols](https://github.com/OliverNichols) 
+
 
