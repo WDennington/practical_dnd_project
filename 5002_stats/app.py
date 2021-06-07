@@ -17,12 +17,12 @@ def roll_dice():
 @app.route("/gen_stats", methods=['GET'])
 def gen_stats():
     
-    strength = roll_dice()
-    dexterity = roll_dice()
-    constitution = roll_dice()
-    intelligence = roll_dice()
-    wisdom = roll_dice()
-    charisma = roll_dice()
+    strength = roll_dice() + 10
+    dexterity = roll_dice() + 10
+    constitution = roll_dice() + 10
+    intelligence = roll_dice() + 10
+    wisdom = roll_dice() + 10
+    charisma = roll_dice() + 10
     
 
     return jsonify([strength, dexterity, constitution, intelligence, wisdom, charisma])

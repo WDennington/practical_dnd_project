@@ -10,13 +10,13 @@ def gen_char():
     char_class=request.json['char_class']
     stats=request.json['stats']
     strength, dexterity, constitution, intelligence, wisdom, charisma = stats  
-    if char_class == 'Dwarf':
+    if char_class == 'Dwarven Brute':
         constitution += 2
-    elif char_class == 'Elf' or char_class == 'Halfling':
+    elif char_class == 'High Elf' or char_class == 'Halfling of Bagend':
         dexterity += 2
-    elif char_class == 'Gnome':
+    elif char_class == 'Gnomish Street Urchin':
         intelligence += 2
-    elif char_class == 'Human':
+    elif char_class == 'Human of Stormwind':
         strength += 1
         dexterity += 1
         constitution += 1

@@ -13,4 +13,4 @@ class TestHome(TestBase):
             response = self.client.get(url_for('gen_stats'))
             self.assertEqual(response.status_code, 200)
             for stat in response.json:
-                self.assertIn(stat, range(3,19))
+                self.assertIn(stat, range(13,29))
