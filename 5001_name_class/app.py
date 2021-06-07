@@ -9,7 +9,7 @@ def gen_name():
     return random.choice(names)
 
 
-classes = ['Barbarian Berserker', 'Lute Bard', 'Holy Cleric', 'Feral Druid', 'Punchy Fighter', 'Zen Monk', 'Divine Paladin', 'Rangerv2', 'Rougev2', 'Sorcererv2', 'Warlockv2', 'Wizardv2']
+classes = ['Barbarian Berserker', 'Lute Bard', 'Holy Cleric', 'Feral Druid', 'Punchy Fighter', 'Zen Monk', 'Divine Paladin', 'Ranger Gunman', 'Shadow Rouge', 'Ice Sorcerer', 'Affliction Warlock', 'Life Wizard']
 @app.route("/gen_class", methods=['GET'])
 def gen_class():
     return random.choice(classes)
