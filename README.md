@@ -102,7 +102,7 @@ Whenever new content is pushed to the `development` branch, Github will send a w
 
 ### CI Pipeline
 
-Below is a visual representation of the full pipeline in visual form, from getting a task to deploying it to the live enviroment.
+Below is a visual representation of the full pipeline, from getting a task to deploying it to the live enviroment.
 
 ![CI Pipeline image](https://i.imgur.com/pUVClbM.jpg)
 
