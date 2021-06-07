@@ -135,7 +135,7 @@ Below First is the cobertura report, next is the Junit Graph and finally is the 
 
 ![image of cobertura report](https://i.imgur.com/683BuWB.png)
 
-Each service is tested individually so if any service does not function the build will stop.
+Each service is tested individually so if any service does not function the test will fail and the build will stop.
 
 ![image of coverage report](https://i.imgur.com/3y9XgU5.png)
 
